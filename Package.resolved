@@ -1,0 +1,15 @@
+{
+  "originHash" : "b4d8badf95d42672ffba2004b0ea86b7b57a966a90f93d9a3e86e78da103a8af",
+  "pins" : [
+    {
+      "identity" : "swift-mbedtls",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielctull-forks/swift-mbedtls",
+      "state" : {
+        "revision" : "742643f87c31c408f8514cac75e17e7aa4eb59a4",
+        "version" : "3.6.5"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -22,6 +22,8 @@ permissions: {}
 
 jobs:
   check:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

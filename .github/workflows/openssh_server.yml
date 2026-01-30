@@ -32,6 +32,8 @@ on:
 
 jobs:
   build-and-push:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     runs-on: ubuntu-latest
     steps:
       - uses: docker/login-action@v3

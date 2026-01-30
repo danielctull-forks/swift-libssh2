@@ -18,6 +18,8 @@ permissions: {}
 
 jobs:
   check_style:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'style-check'
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -27,6 +29,8 @@ jobs:
         run: ./ci/checksrc.sh
 
   shellcheck:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -35,6 +39,8 @@ jobs:
         run: ./ci/shellcheck.sh
 
   spellcheck:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,6 +50,8 @@ jobs:
         run: ./ci/spellcheck.sh
 
   build_integration:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'integration'
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -57,6 +65,8 @@ jobs:
           ./tests/cmake/test.sh
 
   build_linux:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'linux'
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -303,6 +313,8 @@ jobs:
           cd bld && ctest -VV --output-on-failure
 
   build_linux_cross_mingw64:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'linux -> mingw-w64'
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -342,6 +354,8 @@ jobs:
         run: cmake --build bld --parallel 5
 
   build_cygwin:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'cygwin'
     runs-on: windows-latest
     timeout-minutes: 30
@@ -396,6 +410,8 @@ jobs:
           cd bld && ctest -VV --output-on-failure
 
   build_msys2:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'msys2'
     runs-on: windows-latest
     timeout-minutes: 30
@@ -511,6 +527,8 @@ jobs:
         run: cd bld && ctest -VV --output-on-failure
 
   build_msvc:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'msvc'
     runs-on: windows-latest
     timeout-minutes: 30
@@ -563,6 +581,8 @@ jobs:
         run: cd bld && ctest -VV -C Release --output-on-failure
 
   build_macos:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'macOS (${{ matrix.build }}, ${{ matrix.crypto.name }})'
     runs-on: macos-latest
     timeout-minutes: 30
@@ -639,6 +659,8 @@ jobs:
         run: cd bld && ctest -VV --output-on-failure
 
   build_netbsd:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'NetBSD (cmake, openssl, clang)'
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -668,6 +690,8 @@ jobs:
             cmake --build bld --parallel 3
 
   build_openbsd:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'OpenBSD (cmake, libressl, clang)'
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -697,6 +721,8 @@ jobs:
             cmake --build bld --parallel 3
 
   build_freebsd:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'FreeBSD (autotools, openssl, clang)'
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -726,6 +752,8 @@ jobs:
             make check V=1 || { cat tests/*.log; false; }
 
   build_omnios:
+    # Only run on the upstream repository, not forks
+    if: github.repository == 'libssh2/libssh2'
     name: 'OmniOS (autotools, openssl, gcc, amd64)'
     runs-on: ubuntu-latest
     timeout-minutes: 30

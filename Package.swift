@@ -80,6 +80,13 @@ excludedPaths += [
   "src/agent_win.c",  // #included by agent.c on Windows
 ]
 
+// MARK: - Threading
+
+cSettings += [
+  .define("MBEDTLS_THREADING_C", .when(platforms: posix)),
+  .define("MBEDTLS_THREADING_PTHREAD", .when(platforms: posix)),
+]
+
 // MARK: - Cryptography
 
 cSettings += [

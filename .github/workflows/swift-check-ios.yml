@@ -43,5 +43,4 @@ jobs:
             -scheme swift-libssh2 \
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
             -skipPackagePluginValidation \
-            -skipMacroValidation \
-            | xcpretty || exit 1
+            -skipMacroValidation

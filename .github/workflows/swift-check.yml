@@ -120,35 +120,11 @@ jobs:
       - name: Swift Build
         run: swift build
 
-  check-macos:
-    name: macOS (Swift ${{ matrix.swift_version }})
-    runs-on: macos-15
-    strategy:
-      fail-fast: false
-      matrix:
-        swift_version: ["6.2", "6.3"]
-        include:
-          - swift_version: "6.2"
-            xcode_version: "26.2"
-          - swift_version: "6.3"
-            xcode_version: "26.3"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.ref }}
-
-      - name: Select Xcode ${{ matrix.xcode_version }}
-        run: echo "DEVELOPER_DIR=/Applications/Xcode_${{ matrix.xcode_version }}.app" >> $GITHUB_ENV
-
-      - name: Swift Version
-        run: xcrun swift --version
-
-      - name: Clang Version
-        run: xcrun clang --version
-
-      - name: Swift Build
-        run: xcrun swift build
+  macos-build:
+    name: macOS Build
+    uses: ./.github/workflows/swift-check-macos.yml
+    with:
+      swift_versions: '["6.2", "6.3"]'
 
   check-ios:
     name: iOS (Swift ${{ matrix.swift_version }})
